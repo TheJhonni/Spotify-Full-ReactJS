@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+/* import NextAuth from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 import spotifyApi, { LOGIN_URL } from "../../../lib/spotify";
 
@@ -9,7 +9,7 @@ async function refreshAccessToken(token) {
 
     const { body: refreshedToken } = await spotifyApi.refreshAccessToken();
 
-    console.log("REFRESHED TOKEN IS: ", refreshedToken);
+    console.log("REFRESHED TOKEN IS:", refreshedToken);
 
     return {
       ...token,
@@ -30,9 +30,9 @@ async function refreshAccessToken(token) {
 export default NextAuth({
   providers: [
     SpotifyProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-      authorisation: LOGIN_URL,
+      clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
+      authorization: LOGIN_URL,
     }),
   ],
   secret: process.env.JWT_SECRET,
@@ -68,3 +68,4 @@ export default NextAuth({
     },
   },
 });
+ */
