@@ -9,14 +9,17 @@ import {
 } from "@heroicons/react/outline";
 import { signOut, useSession } from "next-auth/react";
 import spotifyApi from "../lib/spotify";
+import useSpotify from "../hooks/useSpotify";
 
 function Sidebar() {
+  const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
   const [playlists, setPlaylists] = useState([]);
+  const [playlistId, setPlaylistId] = useState(null);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
-      spotifyApi.getAccessPlaylists().then((data) => {
+      spotifyApi.getUserPlaylists().then((data) => {
         setPlaylists(data.body.items);
       });
     }
@@ -57,8 +60,15 @@ function Sidebar() {
           <p>Your Episodes</p>
         </button>
         <hr className="border-t-[0.1px] border-gray-900" />
-
-        <p className="cursor-pointer hover:text-white ">fdb</p>
+        {playlists.map((playlist) => (
+          <p
+            key={playlist.id}
+            onClick={() => setPlaylistId(playlistId)}
+            className="cursor-pointer hover:text-white "
+          >
+            {playlist.name}
+          </p>
+        ))}
       </div>
     </div>
   );
