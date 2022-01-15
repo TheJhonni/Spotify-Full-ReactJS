@@ -1,28 +1,34 @@
-export const authEndpoint = "https://accounts.spotify.com/authorize";
-
-const redirectUri = "http://localhost:3000/";
-const clientId = "82d9511903814a61b13cf7fd0e6c2630";
+import SpotifyWebApi from "spotify-web-api-node";
 
 const scopes = [
+  "user-read-email",
+  "playlist-read-private",
+  "playlist-read-collaborative",
+  "user-read-email",
+  "streaming",
+  "user-read-private",
+  "user-library-read",
+  "user-top-read",
+  "user-read-playback-state",
+  "user-modify-playback-state",
   "user-read-currently-playing",
   "user-read-recently-played",
-  "user-read-playback-state",
-  "user-top-read",
-  "user-modify-playback-state",
-];
+  "user-follow-read",
+].join(",");
 
-export const getTokenFromUrl = () => {
-  return window.location.hash
-    .substring(1)
-    .split("&")
-    .reduce((initial, item) => {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-
-      return initial;
-    }, {});
+const params = {
+  scope: scopes,
 };
 
-export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-  "%20"
-)}&response_type=token&show_dialog=true`;
+const queryParamString = new URLSearchParams(params);
+
+const LOGIN_URL =
+  "https://accounts.spotify.com/authorize?" + queryParamString.toString();
+
+const spotifyApi = new SpotifyWebApi({
+  clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
+  clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
+});
+
+export default spotifyApi;
+export { LOGIN_URL };

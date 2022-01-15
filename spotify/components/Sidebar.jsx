@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   HomeIcon,
   SearchIcon,
@@ -7,27 +7,20 @@ import {
   RssIcon,
   HeartIcon,
 } from "@heroicons/react/outline";
+import { signOut, useSession } from "next-auth/react";
+import spotifyApi from "../lib/spotify";
 
 function Sidebar() {
-  /*   const [playlist, setPlaylist] = useState(null);
-
-  const API_KEY = "2a636d89";
-  const BASE_URL = `https://www.omdbapi.com/?apikey=${API_KEY}&`;
-
-  const fetchPlaylistById = async (id) => {
-    try {
-      console.log("request igsgoing");
-      const res = await fetch(`${BASE_URL}i=${id}`);
-      const data = await res.json();
-      setPlaylist(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { data: session, status } = useSession();
+  const [playlists, setPlaylists] = useState([]);
 
   useEffect(() => {
-    fetchPlaylistById(params.playlistId);
-  }, []); */
+    if (spotifyApi.getAccessToken()) {
+      spotifyApi.getAccessPlaylists().then((data) => {
+        setPlaylists(data.body.items);
+      });
+    }
+  }, [session, spotifyApi]);
 
   return (
     <div className="text-gray-500 p-5 text-sm  border-r border-rgay-900 overflow-y-scroll scrollbar-hide h-screen">
