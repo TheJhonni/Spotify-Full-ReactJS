@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState, useCallback } from "react";
-import { _, debounce } from "lodash";
+import { _, debounce } from "lodash.debounce";
 import { useRecoilState } from "recoil";
 import { currentTrackIdState, isPlayingState } from "../atoms/songAtom";
 import useSpotify from "../hooks/useSpotify";
