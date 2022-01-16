@@ -16,10 +16,11 @@ function useSongInfo() {
           `https://api.spotify.com/v1/tracks/${currentIdTrack}`,
           {
             headers: {
-              Authorization: `Bearer${spotifyApi.getAccessToken()}`,
+              Authorization: `Bearer ${spotifyApi.getAccessToken()}`,
             },
           }
-        ).then((res) => res - json());
+        ).then((res) => res.json());
+
         setSongInfo(trackInfo);
       }
     };

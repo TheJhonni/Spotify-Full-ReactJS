@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRecoilState } from "recoil";
 import useSpotify from "../hooks/useSpotify";
 import millisToMinutesAndSeconds from "../lib/time";
