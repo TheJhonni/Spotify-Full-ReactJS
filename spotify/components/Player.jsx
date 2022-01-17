@@ -1,6 +1,5 @@
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState, useCallback } from "react";
-import { _, debounce } from "lodash.debounce";
 import { useRecoilState } from "recoil";
 import { currentTrackIdState, isPlayingState } from "../atoms/songAtom";
 import useSpotify from "../hooks/useSpotify";
@@ -10,8 +9,10 @@ import {
   FastForwardIcon,
   SwitchHorizontalIcon,
   PlayIcon,
+  VolumeOffIcon,
 } from "@heroicons/react/solid";
 import { PauseIcon, ReplyIcon, VolumeUpIcon } from "@heroicons/react/outline";
+import { debounce } from "lodash";
 
 function Player() {
   const spotifyApi = useSpotify();
@@ -101,13 +102,20 @@ function Player() {
       </div>
 
       <div className="flex items-center space-x-3 md:space-x-4 justify-end pr-5">
-        <VolumeUpIcon className="button" />
+        <VolumeOffIcon
+          onClick={() => volume > 0 && setVolume(volume - 10)}
+          className="button"
+        />
         <input
           onChange={(e) => setVolume(Number(e.target.value))}
           type="range"
           value={volume}
           min={0}
           max={100}
+        />
+        <VolumeUpIcon
+          onClick={() => volume < 100 && setVolume(volume + 10)}
+          className="button"
         />
       </div>
     </div>
