@@ -12,9 +12,9 @@ import {
   VolumeOffIcon,
 } from "@heroicons/react/solid";
 import { PauseIcon, ReplyIcon, VolumeUpIcon } from "@heroicons/react/outline";
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 
-function Player() {
+export default function Player() {
   const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
   const [currentTrackId, setCurrentIdTrack] =
@@ -58,16 +58,9 @@ function Player() {
 
   useEffect(() => {
     if (volume > 0 && volume < 100) {
-      debounceAdjustVolume(volume);
+      spotifyApi.setVolume(volume);
     }
   }, [volume]);
-
-  const debounceAdjustVolume = useCallback(
-    debounce((volume) => {
-      spotifyApi.setVolume(volume).catch((err) => {});
-    }, 500),
-    []
-  );
 
   return (
     <div className="h-24 bg-gradient-to-b from-black to-gray-900 text-white grid grid-cols-3 text-xs md:text-base px-2 md:px-8">
@@ -121,5 +114,3 @@ function Player() {
     </div>
   );
 }
-
-export default Player;
