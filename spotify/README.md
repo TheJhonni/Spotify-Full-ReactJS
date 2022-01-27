@@ -1,12 +1,7 @@
-# Next.js + Tailwind CSS Example
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+# 🚀 Spotify-Clone With React-REDUX && Tailwind CSS
 
-## Preview
-
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Learn how to quickly set up a React project with the Tailwind CSS framework using the [starter kit](https://github.com/labnol/react-tailwind). The project was bootstrapped with Create React App and it uses PurgeCSS to remove all the unused CSS classes from the production build.
 
 
 # Homepage
@@ -17,39 +12,37 @@ Preview the example live on [StackBlitz](http://stackblitz.com/):
 
 ![Login](Login.jpeg)
 
-# Spotify-Full-ReactJS
 
-# Getting Started with Create React App
+## Live Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The [Digital Inspiration](https://digitalinspiration.com/) website is built with the Tailwind CSS, React.js and Gatsby.
 
-## Available Scripts
+[CodeSandbox](https://codesandbox.io/s/github/labnol/react-tailwind) | [Glitch](https://glitch.com/edit/#!/remix/react-tailwindcss) | [Vercel](https://csb-ggfl7-ipit3clvr.vercel.app/)
+
+### Available npm scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in the development mode.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Open `http://localhost:3000` to view it in the browser.
 
+The page will reload if you make edits. You will also see any lint errors in the console.
 
-## Deploy your own
+### `npm run build`
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Builds the React app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+The build is minified and the filenames include the hashes. Your app is ready to be deployed!
 
-## How to use
+### `npm run inline`
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+This command uses `Gulp` to inline all the JavaScript and CSS files from the production build into a single minified file.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### 📧 Contact
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+The React and Tailwind CSS starter is written by [Amit Agarwal](https://www.labnol.org/about). It is now updated to support Tailwind CSS v2.0.
+
+If you have any questions or feedback, send an email at [amit@labnol.org](mailto:amit@labnol.org?subject=Tailwind+React).
